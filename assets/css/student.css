@@ -1,0 +1,4167 @@
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #eef2ee;
+  /* BAGO: Siguraduhing hindi lumalabas ang content sa screen */
+  overflow-x: hidden; 
+}
+
+/* =========================================
+   LOGIN CONTAINER - SPLIT SCREEN
+========================================= */
+
+.login-container {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  min-height: 560px;
+  transition: all 0.3s ease;
+  /* BAGO: Para hindi masira ang layout pag sobrang liit ng screen */
+  margin: 0 auto;
+}
+
+/* =========================================
+   LEFT PANEL - GREEN
+========================================= */
+
+.login-left {
+  flex: 1 1 42%;
+  background: linear-gradient(145deg, #0a3d14, #1a6b22);
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background circles */
+.login-left::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.login-left::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.login-left > * {
+  position: relative;
+  z-index: 1;
+  
+}
+
+/* Brand Content Wrapper */
+.brand-content {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Heading */
+.login-left h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  
+  /* PALITAN MO ITO (Dapat left na): */
+  text-align: left; 
+  display: block;
+  width: 100%;
+}
+
+/* Subtitle */
+.login-left .subhead {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: left;
+  max-width: 95%;
+}
+
+/* Feature Grid */
+.login-left .feature-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+/* Feature Item */
+.login-left .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ffffff;
+  padding: 0.4rem 0;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.login-left .feature-item:hover {
+  opacity: 1;
+  padding-left: 0.3rem;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Feature Icon */
+.login-left .feature-icon {
+  font-size: 1.1rem;
+  width: 1.8rem;
+  display: inline-block;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+
+
+/* =========================================
+   RIGHT PANEL - LOGIN FORM
+========================================= */
+
+.login-card {
+  flex: 1 1 55%;
+  padding: 3rem 3.2rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* =========================================
+   LOGIN HEADER
+========================================= */
+
+.login-header {
+  margin-bottom: 2.2rem;
+  padding: 0;
+  text-align: left;
+  background: transparent;
+  color: #0a1e0c;
+}
+
+.login-header .welcome-icon {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.login-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0a1e0c;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.3px;
+}
+
+.login-header p {
+  font-size: 0.95rem;
+  color: #4a5e4b;
+  margin: 0;
+}
+
+/* =========================================
+   LOGIN BODY
+========================================= */
+
+.login-body {
+  padding: 0;
+  background: transparent;
+  width: 100%;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.login-body form {
+  width: 100%;
+}
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.login-body .form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+/* =========================================
+   LABEL
+========================================= */
+
+.login-body label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #1a3d1d;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.login-body input[type="text"],
+.login-body input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid #e2ece3;
+  border-radius: 10px;
+  outline: none;
+  background: #f8faf8;
+  color: #0f1f11;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.login-body input[type="text"]:hover,
+.login-body input[type="password"]:hover {
+  background: #ffffff;
+  border-color: #c8ddca;
+}
+
+.login-body input[type="text"]:focus,
+.login-body input[type="password"]:focus {
+  border-color: #1b5e20;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(27, 94, 32, 0.08);
+  transform: translateY(-1px);
+}
+
+.login-body input::placeholder {
+  color: #aabfad;
+  font-weight: 400;
+}
+
+/* =========================================
+   PASSWORD FIELD WITH SHOW/HIDE TOGGLE
+========================================= */
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
+  padding-right: 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  user-select: none;
+  background: transparent;
+  border: none;
+  z-index: 10;
+  border-radius: 6px;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.toggle-password svg {
+  width: 20px;
+  height: 20px;
+  stroke: #555;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+  pointer-events: none;
+}
+
+/* =========================================
+   EXAMPLE TEXT
+========================================= */
+
+.example {
+  margin-top: 0.4rem;
+  color: #7a927c;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding-left: 0.2rem;
+}
+
+/* =========================================
+   SUCCESS & ERROR MESSAGES
+========================================= */
+
+.login-body .success,
+.login-body .error {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-body .success {
+  background: #e8f5e9;
+  color: #1a5c20;
+  border-left: 4px solid #1b5e20;
+}
+
+.login-body .error {
+  background: #fde8e8;
+  color: #7a2e2a;
+  border-left: 4px solid #c62828;
+}
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-body button[type="submit"] {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #1b5e20, #0f4714);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.3rem;
+  box-sizing: border-box;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-body button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.login-body button[type="submit"]:hover {
+  background: linear-gradient(145deg, #0f4714, #0a3d12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(27, 94, 32, 0.3);
+}
+
+.login-body button[type="submit"]:hover::after {
+  left: 100%;
+}
+
+.login-body button[type="submit"]:active {
+  transform: translateY(0px);
+  box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+.login-body .links {
+  margin-top: 1.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #e8efe9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.login-body .links a {
+  color: #1b5e20;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+.login-body .links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1b5e20;
+  transition: width 0.3s ease;
+}
+
+.login-body .links a:hover {
+  color: #0d3d12;
+}
+
+.login-body .links a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   DEMO INFO
+========================================= */
+
+.demo-info {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid #dce8dd;
+  border-radius: 8px;
+  background: #f7faf7;
+  color: #3a5a3d;
+  font-size: 0.75rem;
+  text-align: left;
+  line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.demo-info:hover {
+  background: #f0f6f0;
+  border-color: #b7d8ba;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 920px) {
+  .login-left {
+    padding: 2.8rem 2rem;
+  }
+
+  .login-left h1 {
+    font-size: 2.4rem;
+  }
+
+  .login-card {
+    padding: 2.5rem 2.2rem;
+  }
+
+  .login-header h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .login-container {
+    flex-direction: column;
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  .login-left {
+    padding: 2.5rem 2rem;
+    border-radius: 20px 20px 0 0;
+    min-height: auto;
+  }
+
+  .login-left h1 {
+    font-size: 2.2rem;
+  }
+
+  .login-left .subhead {
+    max-width: 100%;
+  }
+
+  .login-left .feature-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .login-left .feature-item {
+    padding: 0.3rem 0;
+  }
+
+  .login-card {
+    padding: 2.2rem 2rem;
+  }
+
+  .login-header h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 10px;
+  }
+
+  .login-container {
+    border-radius: 16px;
+  }
+
+  .login-left {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .login-left h1 {
+    font-size: 1.8rem;
+  }
+
+  .login-left .subhead {
+    font-size: 0.85rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .login-left .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .login-left .feature-item {
+    font-size: 0.85rem;
+  }
+
+  .login-card {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .login-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .login-header p {
+    font-size: 0.85rem;
+  }
+
+  .login-body input[type="text"],
+  .login-body input[type="password"] {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .login-body button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+
+  .login-body .links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .login-body .links a {
+    font-size: 0.8rem;
+  }
+
+  .demo-info {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.7rem;
+  }
+}
+
+
+
+
+
+
+ 
+/* =========================================
+   REGISTER PAGE
+========================================= */
+ 
+
+
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+}
+ 
+/* =========================================
+   CONTAINER
+========================================= */
+ 
+.register-page .container {
+  width: 100%;
+  max-width: 600px;
+}
+ 
+/* =========================================
+   REGISTER CARD
+========================================= */
+ 
+.register-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  animation: fadeInUp 0.5s ease-out;
+}
+ 
+/* =========================================
+   REGISTER HEADER
+========================================= */
+ 
+.register-header {
+  padding: 40px 30px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0a3d14 0%, #1a6b22 100%);
+}
+ 
+.register-header h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 600;
+}
+ 
+.register-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+ 
+/* =========================================
+   REGISTER BODY
+========================================= */
+ 
+.register-body {
+  padding: 40px 30px;
+  background: #ffffff;
+}
+ 
+/* =========================================
+   FORM ROW (2-COLUMN LAYOUT)
+========================================= */
+ 
+.register-body .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+ 
+/* =========================================
+   FORM GROUP
+========================================= */
+.register-body .form-group {
+  margin-bottom: 25px;
+}
+ 
+/* =========================================
+   LABEL
+========================================= */
+ 
+.register-body label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 600;
+}
+ 
+/* =========================================
+   INPUT + TEXTAREA
+========================================= */
+ 
+.register-body input,
+.register-body textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  font-family: inherit;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+ 
+.register-body textarea {
+  resize: vertical;
+}
+ 
+.register-body input:focus,
+.register-body textarea:focus {
+  border-color: #43a047;
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.12);
+}
+ 
+
+
+/* =========================================
+   REGISTER BUTTON (SAME AS LOGIN)
+========================================= */
+
+.register-body button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #1b5e20, #0f4714);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.3rem;
+  box-sizing: border-box;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-body button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.register-body button:hover {
+  background: linear-gradient(145deg, #0f4714, #0a3d12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(27, 94, 32, 0.3);
+}
+
+.register-body button:hover::after {
+  left: 100%;
+}
+
+.register-body button:active {
+  transform: translateY(0px);
+  box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+}
+
+
+
+/* =========================================
+   INFO BOX
+========================================= */
+ 
+.register-body .info-box {
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  border-left: 4px solid #43a047;
+  border-radius: 10px;
+  background: #eef7ef;
+  color: #2e5c31;
+  font-size: 14px;
+  line-height: 1.5;
+}
+ 
+/* =========================================
+   ERROR
+========================================= */
+ 
+.register-body .error {
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  border-left: 4px solid #f44336;
+  border-radius: 10px;
+  background: #fff0f0;
+  color: #d32f2f;
+  font-size: 14px;
+}
+ 
+/* =========================================
+   LINKS
+========================================= */
+ 
+.register-body .links {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+ 
+.register-body .links a {
+  color: #2e7d32;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+ 
+.register-body .links a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}
+ 
+/* =========================================
+   SUCCESS BOX (WRAPS THE WHOLE SUCCESS VIEW)
+========================================= */
+ 
+.success-box {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  animation: fadeInUp 0.5s ease-out;
+}
+ 
+/* =========================================
+   SUCCESS HEADER
+========================================= */
+ 
+.success-header {
+  padding: 40px 30px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+}
+ 
+.success-header h3 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+ 
+.success-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+ 
+/* =========================================
+   ADMISSION BOX
+========================================= */
+ 
+.admission-box {
+  margin: 30px;
+  padding: 25px;
+  border-radius: 14px;
+  background: #f1f8f2;
+  border: 2px dashed #43a047;
+  text-align: center;
+}
+ 
+.admission-box h4 {
+  margin-bottom: 12px;
+  color: #333333;
+  font-size: 15px;
+  font-weight: 600;
+}
+ 
+.admission-number {
+  padding: 12px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1b5e20;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+ 
+.admission-description {
+  margin-top: 12px;
+  color: #666666;
+  font-size: 13px;
+}
+ 
+/* =========================================
+   WARNING BOX
+========================================= */
+ 
+.warning-box {
+  margin: 0 30px 30px;
+  padding: 14px 16px;
+  border-left: 4px solid #ffa726;
+  border-radius: 10px;
+  background: #fff8e1;
+  color: #8a5a00;
+  font-size: 13px;
+  line-height: 1.6;
+}
+ 
+/* =========================================
+   SUCCESS ACTION
+========================================= */
+ 
+.success-action {
+  padding: 0 30px 30px;
+  text-align: center;
+}
+ 
+.btn-login {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #43a047 0%, #1b5e20 100%);
+ 
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+ 
+.btn-login:hover {
+  transform: translateY(-2px);
+ 
+  box-shadow: 0 5px 15px rgba(67, 160, 71, 0.4);
+}
+ 
+/* =========================================
+   MOBILE REGISTER
+========================================= */
+ 
+@media (max-width: 600px) {
+  .register-page {
+    padding: 15px;
+  }
+ 
+  .register-header,
+  .success-header {
+    padding: 30px 20px;
+  }
+ 
+  .register-header h2 {
+    font-size: 24px;
+  }
+ 
+  .register-body {
+    padding: 30px 20px;
+  }
+ 
+  .register-body .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+ 
+  .admission-box,
+  .warning-box {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+ 
+  .admission-number {
+    font-size: 20px;
+  }
+}
+
+
+
+/* =========================================
+   REGISTER PAGE (SPLIT SCREEN)
+========================================= */
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #eef2ee;
+}
+
+.register-page .container.split-container {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  min-height: 560px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* LEFT PANEL (Register) */
+.register-left {
+  flex: 1 1 42%;
+  background: linear-gradient(145deg, #0a3d14, #1a6b22);
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.register-left::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.register-left::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.register-left > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading */
+.register-left h1 {
+  font-size: 2rem; /* Binabaan natin para kasya sa isang linya */
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.register-left .subhead {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: left;
+  max-width: 95%;
+}
+
+.register-left .feature-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.register-left .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ffffff;
+  padding: 0.4rem 0;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.register-left .feature-item:hover {
+  opacity: 1;
+  padding-left: 0.3rem;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+/* RIGHT PANEL (Form) */
+.register-card {
+  flex: 1 1 55%;
+  padding: 3rem 3.2rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register-card-inner  {
+  padding: 1.5rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+/* Bagong simpleng title */
+.form-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0a1e0c;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* I-override yung lumang register-header na may green background */
+.register-header {
+  display: none;
+}
+
+/* I-override yung register-body */
+.register-body {
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register-body form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Form Rows */
+.register-body .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Form Group */
+.register-body .form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+/* Label */
+.register-body label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  color: #333333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Inputs and Textarea */
+.register-body input,
+.register-body textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+}
+
+.register-body textarea {
+  resize: vertical;
+}
+
+.register-body input:focus,
+.register-body textarea:focus {
+  border-color: #43a047;
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.12);
+}
+
+/* Button */
+.register-body button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #43a047 0%, #1b5e20 100%);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-sizing: border-box;
+}
+
+.register-body button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(67, 160, 71, 0.4);
+}
+
+/* Info Box */
+.register-body .info-box {
+  margin-bottom: 15px;
+  padding: 10px 14px;
+  border-left: 4px solid #43a047;
+  border-radius: 10px;
+  background: #eef7ef;
+  color: #2e5c31;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Error */
+.register-body .error {
+  margin-bottom: 15px;
+  padding: 10px 14px;
+  border-left: 4px solid #f44336;
+  border-radius: 10px;
+  background: #fff0f0;
+  color: #d32f2f;
+  font-size: 13px;
+}
+
+/* Links */
+.register-body .links {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.register-body .links a {
+  color: #2e7d32;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.register-body .links a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}
+
+/* Success Box */
+.success-box {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  animation: fadeInUp 0.5s ease-out;
+  padding: 2rem;
+}
+
+.success-header {
+  padding: 20px 0;
+  text-align: center;
+  color: #0a3d14;
+}
+
+.success-header h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0a3d14;
+}
+
+.success-header p {
+  font-size: 14px;
+  color: #4a5e4b;
+  opacity: 1;
+}
+
+.email-status {
+  margin-bottom: 15px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.success-email {
+  background: #e8f5e9;
+  color: #1a5c20;
+  border-left: 4px solid #1b5e20;
+}
+
+.error-email {
+  background: #fde8e8;
+  color: #7a2e2a;
+  border-left: 4px solid #c62828;
+}
+
+.admission-box {
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 14px;
+  background: #f1f8f2;
+  border: 2px dashed #43a047;
+  text-align: center;
+}
+
+.admission-box h4 {
+  margin-bottom: 10px;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.admission-number {
+  padding: 10px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1b5e20;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.admission-description {
+  margin-top: 10px;
+  color: #666666;
+  font-size: 12px;
+}
+
+.warning-box {
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border-left: 4px solid #ffa726;
+  border-radius: 10px;
+  background: #fff8e1;
+  color: #8a5a00;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.success-action {
+  text-align: center;
+}
+
+.btn-login {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #43a047 0%, #1b5e20 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(67, 160, 71, 0.4);
+}
+
+/* Responsive for Register */
+@media (max-width: 820px) {
+  .register-page .container.split-container {
+    flex-direction: column;
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  .register-left {
+    padding: 2.5rem 2rem;
+    border-radius: 20px 20px 0 0;
+    min-height: auto;
+  }
+
+  .register-card-inner,
+  .success-box {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .register-page {
+    padding: 10px;
+  }
+
+  .register-left {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .register-body .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .register-body .form-group {
+    margin-bottom: 1rem;
+  }
+}
+ 
+
+
+
+
+
+/* =========================================================
+   SIDEBAR (Desktop Default: 250px)
+========================================================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0 !important;
+  width: 250px;
+  height: 100vh;
+  background: #255f38;
+  color: #ffffff;
+  padding: 20px 0;
+  display: flex !important;
+  flex-direction: column;
+  z-index: 1000;
+  border-right: 1px solid #174226;
+  box-shadow: 3px 0 15px rgba(0, 0, 0, 0.12);
+  transition: width 0.3s ease;
+}
+/* Sidebar Brand / Logo */
+.sidebar h2 {
+  width: 100%;
+  margin: 0 0 25px;
+  padding: 0 16px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+.sidebar h2 i {
+  font-size: 22px;
+  min-width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+/* Navigation List */
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* Navigation Links */
+.sidebar a,
+.sidebar-disabled {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  padding: 12px 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+.sidebar a i,
+.sidebar-disabled i {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.sidebar a:hover {
+  background: #ffffff;
+  color: #255f38;
+}
+.sidebar a:hover i {
+  color: #255f38;
+}
+.sidebar a.active {
+  background: #174226;
+  color: #ffffff;
+  border-left: 4px solid #a3e635;
+  font-weight: 600;
+}
+.sidebar-disabled {
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+  user-select: none;
+}
+/* Logout Section */
+.logout-section {
+  margin-top: auto;
+  padding: 15px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.logout-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+.logout-btn:hover {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border-color: #dc2626 !important;
+}
+/* =========================================================
+   MAIN CONTENT & TOPBAR (Desktop)
+========================================================= */
+.main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  padding: 25px 30px;
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+.topbar {
+  width: 100%;
+  min-height: 70px;
+  background: #ffffff;
+  padding: 16px 22px;
+  margin-bottom: 25px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+.topbar h1 {
+  margin: 0;
+  color: #255f38;
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.topbar-profile .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #255f38;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.info-card,
+.quick-actions {
+  width: 100%;
+  background: #ffffff;
+  padding: 24px;
+  margin-bottom: 22px;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 1px solid #edf2f7;
+}
+.info-card h3,
+.quick-actions > h3 {
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #edf2f7;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.info-card h3 i,
+.quick-actions > h3 i {
+  color: #255f38;
+}
+.next-step-box {
+  padding: 20px;
+  background: #f7fafc;
+  border-radius: 12px;
+  border-left: 4px solid #255f38;
+}
+.next-step-title {
+  margin-bottom: 8px;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+}
+.next-step-text {
+  color: #718096;
+  margin-bottom: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.action-btn {
+  min-height: 46px;
+  width: 260px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #255f38;
+  color: #ffffff;
+  border: 1px solid #255f38;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =========================================================
+   PERFECT ICON-ONLY SIDEBAR (<= 768px)
+========================================================= */
+@media (max-width: 768px) {
+  /* 1. Sidebar Container */
+  .sidebar {
+    width: 68px !important;
+    min-width: 68px !important;
+    max-width: 68px !important;
+    left: 0 !important;
+    padding: 16px 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. TOP ICON (Graduation Cap): Exact 44px box matching the buttons */
+  .sidebar h2 {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    margin: 0 auto 16px auto !important; /* Exact same centering as buttons */
+    padding: 0 !important;
+    gap: 0 !important; /* REMOVES the 10px offset */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    border: none !important;
+  }
+
+  .sidebar h2 i {
+    font-size: 24px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    line-height: 1 !important;
+    color: #ffffff !important;
+  }
+
+  .sidebar h2 span {
+    display: none !important;
+  }
+
+  /* 3. Navigation Container */
+  .sidebar-nav {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 4. ALL BUTTONS: Exact 44px x 44px Centered Squares */
+  .sidebar a,
+  .sidebar-disabled,
+  .logout-btn {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+    border: 2px solid transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 5. ALL ICONS */
+  .sidebar i,
+  .sidebar a i,
+  .sidebar-disabled i,
+  .logout-btn i {
+    font-size: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    display: inline-block !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    color: #ffffff !important;
+  }
+
+  /* 6. Active State (Home button ring) */
+  .sidebar a.active {
+    background: #174226 !important;
+    border: 2px solid #a3e635 !important;
+  }
+
+  .sidebar a.active i {
+    color: #ffffff !important;
+  }
+
+  /* 7. Hover State */
+  .sidebar a:hover {
+    background: #ffffff !important;
+    border-color: #ffffff !important;
+  }
+
+  .sidebar a:hover i {
+    color: #255f38 !important;
+  }
+
+  .sidebar a.active:hover {
+    background: #174226 !important;
+    border-color: #a3e635 !important;
+  }
+
+  .sidebar a.active:hover i {
+    color: #ffffff !important;
+  }
+
+  /* 8. Logout Section */
+  .logout-section {
+    width: 100% !important;
+    margin-top: auto !important;
+    padding: 12px 0 0 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
+
+  /* 9. Main Content Layout */
+  .main {
+    margin-left: 68px !important;
+    width: calc(100% - 68px) !important;
+    padding: 16px !important;
+  }
+
+  .topbar {
+    padding: 14px 16px !important;
+  }
+
+  .topbar h1 {
+    font-size: 18px !important;
+  }
+}
+
+/* =========================================================
+   GRADES TABLE STYLES
+========================================================= */
+
+.grades-wrapper {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.grades-table thead {
+  background: #255f38;
+  color: #ffffff;
+}
+
+.grades-table thead th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.grades-table thead th:last-child {
+  text-align: center;
+}
+
+.grades-table tbody tr {
+  border-bottom: 1px solid #edf2f7;
+  transition: background 0.15s ease;
+}
+
+.grades-table tbody tr:hover {
+  background: #f7fafc;
+}
+
+.grades-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.grades-table tbody td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  color: #2d3748;
+}
+
+.grades-table tbody td:last-child {
+  text-align: center;
+}
+
+/* Subject Code Badge */
+.code-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #edf2f7;
+  color: #255f38;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Grade Cells */
+.grade-cell {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.grade-final {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 48px;
+  text-align: center;
+}
+
+.grade-final.pass {
+  background: #e6f7ed;
+  color: #1a7a42;
+}
+
+.grade-final.fail {
+  background: #fde8e8;
+  color: #c0392b;
+}
+
+.grade-final.high {
+  background: #d4edda;
+  color: #155724;
+}
+
+.grade-final.low {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* =========================================================
+   GPA SUMMARY - FIXED LAYOUT
+========================================================= */
+
+.gpa-summary {
+  display: flex;
+  justify-content: flex-end;
+  padding: 18px 24px;
+  background: #f8fafc;
+  border-top: 2px solid #edf2f7;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.gpa-summary.gpa-incomplete {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 24px;
+}
+
+.gpa-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: #255f38;
+  border-radius: 10px;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37, 95, 56, 0.2);
+}
+
+.gpa-box-incomplete {
+  background: #718096;
+  box-shadow: 0 2px 8px rgba(113, 128, 150, 0.2);
+}
+
+.gpa-box .gpa-label {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.gpa-box .gpa-value {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.gpa-note {
+  font-size: 13px;
+  color: #718096;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.gpa-note i {
+  color: #255f38;
+  font-size: 14px;
+}
+
+.gpa-incomplete .gpa-note {
+  text-align: center;
+  justify-content: center;
+  flex: none;
+  max-width: 500px;
+}
+
+.gpa-incomplete .gpa-note i {
+  color: #718096;
+}
+
+/* =========================================================
+   NO GRADES CARD - FIXED STYLING
+========================================================= */
+
+.no-grades-card {
+  background: #ffffff;
+  border: 2px dashed #cbd5e0;
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.no-grades-card i {
+  font-size: 48px;
+  color: #cbd5e0;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.no-grades-card h3 {
+  font-size: 20px;
+  color: #2d3748;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.no-grades-card p {
+  font-size: 15px;
+  color: #718096;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.no-grades-card .empty-icon {
+  font-size: 52px;
+  color: #e2e8f0;
+  margin-bottom: 15px;
+}
+
+/* =========================================================
+   INFO CARD - FIXED LAYOUT
+========================================================= */
+
+.info-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 24px 28px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  border: 1px solid #edf2f7;
+}
+
+.info-card h3 {
+  margin: 0 0 18px 0;
+  padding-bottom: 13px;
+  border-bottom: 2px solid #edf2f7;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.info-card h3 i {
+  color: #255f38;
+}
+
+.info-card p {
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.info-card .highlight {
+  color: #255f38;
+  font-weight: 700;
+}
+
+/* =========================================================
+   ACADEMIC PERFORMANCE CARD - FIXED
+========================================================= */
+
+.academic-info {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-left: 4px solid #255f38;
+}
+
+.academic-info h3 i {
+  color: #255f38;
+}
+
+.academic-info p {
+  color: #4a5568;
+}
+
+/* =========================================================
+   GRADES WRAPPER - IMPROVED
+========================================================= */
+
+.grades-wrapper {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  border: 1px solid #edf2f7;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   GRADES TABLE - IMPROVED RESPONSIVE
+========================================================= */
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.grades-table thead {
+  background: #255f38;
+  color: #ffffff;
+}
+
+.grades-table thead th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.grades-table tbody tr {
+  border-bottom: 1px solid #edf2f7;
+  transition: background 0.15s ease;
+}
+
+.grades-table tbody tr:hover {
+  background: #f7fafc;
+}
+
+.grades-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.grades-table tbody td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  color: #2d3748;
+}
+
+/* Subject Code Badge */
+.grades-table .code-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #edf2f7;
+  color: #255f38;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-family: monospace;
+}
+
+/* Grade Cells */
+.grade-cell {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.grade-final {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 48px;
+  text-align: center;
+}
+
+.grade-final.pass {
+  background: #e6f7ed;
+  color: #1a7a42;
+}
+
+.grade-final.fail {
+  background: #fde8e8;
+  color: #c0392b;
+}
+
+.grade-final.high {
+  background: #d4edda;
+  color: #155724;
+}
+
+.grade-final.low {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.grade-final.pending {
+  background: #edf2f7;
+  color: #718096;
+}
+
+/* Grade Remarks Column */
+.grade-remarks {
+  font-weight: 500;
+}
+
+.grade-remarks.passed {
+  color: #1a7a42;
+}
+
+.grade-remarks.failed {
+  color: #c0392b;
+}
+
+.grade-remarks.inc {
+  color: #856404;
+}
+
+/* =========================================================
+   RESPONSIVE FIXES
+========================================================= */
+
+@media (max-width: 768px) {
+  .grades-table {
+    font-size: 13px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .grades-table thead th,
+  .grades-table tbody td {
+    padding: 12px 14px;
+  }
+
+  .grades-table .code-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .grade-final {
+    font-size: 12px;
+    padding: 3px 10px;
+    min-width: 40px;
+  }
+
+  .gpa-summary {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 18px;
+  }
+
+  .gpa-box {
+    justify-content: center;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .gpa-box .gpa-value {
+    font-size: 20px;
+    min-width: 50px;
+  }
+
+  .gpa-note {
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+    min-width: auto;
+  }
+
+  .gpa-incomplete .gpa-note {
+    max-width: 100%;
+  }
+
+  .info-card {
+    padding: 18px 20px;
+  }
+
+  .no-grades-card {
+    padding: 30px 20px;
+  }
+
+  .no-grades-card h3 {
+    font-size: 18px;
+  }
+
+  .no-grades-card p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grades-table thead th,
+  .grades-table tbody td {
+    padding: 10px 10px;
+  }
+
+  .grades-table {
+    font-size: 12px;
+  }
+
+  .grade-cell {
+    font-size: 13px;
+  }
+
+  .grades-table thead th {
+    font-size: 11px;
+  }
+
+  .gpa-box {
+    padding: 8px 16px;
+    max-width: 100%;
+  }
+
+  .gpa-box .gpa-value {
+    font-size: 18px;
+    min-width: 40px;
+  }
+
+  .gpa-box .gpa-label {
+    font-size: 12px;
+  }
+
+  .gpa-note {
+    font-size: 11px;
+  }
+
+  .no-grades-card {
+    padding: 25px 15px;
+  }
+
+  .no-grades-card h3 {
+    font-size: 16px;
+  }
+
+  .no-grades-card p {
+    font-size: 13px;
+  }
+
+  .no-grades-card i {
+    font-size: 36px;
+  }
+
+  .info-card {
+    padding: 15px 16px;
+  }
+
+  .info-card h3 {
+    font-size: 16px;
+  }
+
+  .info-card p {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   SCHEDULE TABLE STYLES
+========================================================= */
+
+.schedule-wrapper {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.schedule-table thead {
+  background: #255f38;
+  color: #ffffff;
+}
+
+.schedule-table thead th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.schedule-table tbody tr {
+  border-bottom: 1px solid #edf2f7;
+  transition: background 0.15s ease;
+}
+
+.schedule-table tbody tr:hover {
+  background: #f7fafc;
+}
+
+.schedule-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.schedule-table tbody td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  color: #2d3748;
+}
+
+/* Day Badge */
+.day-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background: #ebf4ff;
+  color: #255f38;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Room Badge */
+.room-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #f0f5f1;
+  color: #4a5568;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Subject Name */
+.schedule-table .subject-name {
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .schedule-table {
+    font-size: 13px;
+  }
+
+  .schedule-table thead th,
+  .schedule-table tbody td {
+    padding: 12px 14px;
+  }
+
+  .day-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .room-badge {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-table thead th,
+  .schedule-table tbody td {
+    padding: 10px 10px;
+  }
+
+  .schedule-table {
+    font-size: 12px;
+  }
+
+  .schedule-table thead th {
+    font-size: 11px;
+  }
+
+  .day-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .room-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+}
+
+/* =========================================================
+   NEXT STEP BOX (Dashboard)
+========================================================= */
+
+.next-step-box {
+  padding: 20px;
+  background: #f7fafc;
+  border-radius: 12px;
+  border-left: 4px solid #255f38;
+}
+
+.next-step-title {
+  border: 0;
+  padding: 0;
+  margin-bottom: 8px;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.next-step-text {
+  color: #718096;
+  margin-bottom: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   DOCUMENTS STYLES
+========================================================= */
+
+.documents-wrapper {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+}
+
+.doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: all 0.2s ease;
+}
+
+.doc-row:hover {
+  border-color: #b7d8ba;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.doc-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.doc-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #edf2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a5568;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.doc-icon i {
+  color: #e53e3e;
+}
+
+.doc-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #2d3748;
+}
+
+.doc-meta {
+  font-size: 12.5px;
+  color: #a0aec0;
+  margin-top: 2px;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #255f38;
+  color: #ffffff;
+  border: 1px solid #255f38;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background: #174226;
+  border-color: #174226;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 95, 56, 0.25);
+}
+
+.download-btn i {
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .documents-wrapper {
+    padding: 15px;
+  }
+
+  .doc-row {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .doc-left {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .doc-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .doc-name {
+    font-size: 13px;
+  }
+
+  .download-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .documents-wrapper {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .doc-row {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .doc-left {
+    gap: 10px;
+  }
+
+  .doc-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .doc-name {
+    font-size: 12px;
+  }
+
+  .doc-meta {
+    font-size: 11px;
+  }
+
+  .download-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+/* =========================================================
+   SUBJECTS TABLE STYLES
+========================================================= */
+
+.subjects-wrapper {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.subjects-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.subjects-table thead {
+  background: #255f38;
+  color: #ffffff;
+}
+
+.subjects-table thead th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subjects-table thead th:last-child {
+  text-align: center;
+}
+
+.subjects-table tbody tr {
+  border-bottom: 1px solid #edf2f7;
+  transition: background 0.15s ease;
+}
+
+.subjects-table tbody tr:hover {
+  background: #f7fafc;
+}
+
+.subjects-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.subjects-table tbody td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  color: #2d3748;
+}
+
+.subjects-table tbody td:last-child {
+  text-align: center;
+}
+
+/* Subject Code Badge */
+.subjects-table .code-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #edf2f7;
+  color: #255f38;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-family: monospace;
+}
+
+/* Units Badge */
+.units-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: #e6f7ed;
+  color: #1a7a42;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 32px;
+}
+
+/* Subject Name */
+.subjects-table .subject-name {
+  font-weight: 500;
+}
+
+/* Row striping - subtle */
+.subjects-table tbody tr:nth-child(even) {
+  background: #fafcfa;
+}
+
+.subjects-table tbody tr:nth-child(even):hover {
+  background: #f4f8f5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .subjects-table {
+    font-size: 13px;
+  }
+
+  .subjects-table thead th,
+  .subjects-table tbody td {
+    padding: 12px 14px;
+  }
+
+  .subjects-table .code-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .units-badge {
+    font-size: 12px;
+    padding: 3px 10px;
+    min-width: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subjects-table thead th,
+  .subjects-table tbody td {
+    padding: 10px 10px;
+  }
+
+  .subjects-table {
+    font-size: 12px;
+  }
+
+  .subjects-table thead th {
+    font-size: 11px;
+  }
+
+  .subjects-table .code-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .units-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    min-width: 24px;
+  }
+
+  .subjects-table .subject-name {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   ENROLLMENT PAGE
+   ========================================================= */
+
+.enrollment-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   ENROLLMENT HEADER
+   ========================================================= */
+
+.enrollment-header {
+  background: #ffffff;
+  border: 1px solid #dfe7e1;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.enrollment-header h2 {
+  margin: 0 0 7px;
+  color: #255f38;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.enrollment-header p {
+  margin: 0;
+  color: #718096;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   STATUS PILLS
+   ========================================================= */
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-neutral {
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+.status-pending {
+  background: #fff8d6;
+  color: #975a16;
+}
+
+.status-approved {
+  background: #d9f7e3;
+  color: #22543d;
+}
+
+.status-rejected {
+  background: #ffe0e0;
+  color: #c53030;
+}
+
+/* =========================================================
+   NOTICE / STATUS MESSAGE
+   ========================================================= */
+
+.notice {
+  width: 100%;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.notice strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.notice p {
+  margin: 5px 0 12px;
+}
+
+.notice-pending {
+  background: #fffdf0;
+  border: 1px solid #ecc94b;
+  color: #975a16;
+}
+
+.notice-approved {
+  background: #f0fff4;
+  border: 1px solid #68d391;
+  color: #22543d;
+}
+
+.notice-rejected {
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+}
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.action-btn {
+  min-height: 46px;
+  width: 275px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #255f38;
+  color: #ffffff;
+  border: 1px solid #255f38;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.action-btn:hover {
+  background: #174226;
+  color: #ffffff;
+  border-color: #174226;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(37, 95, 56, 0.2);
+}
+
+.action-btn i {
+  font-size: 14px;
+}
+
+/* =========================================================
+   ENROLLMENT WIZARD
+   ========================================================= */
+
+.wizard {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #dfe7e1;
+  border-radius: 14px;
+  padding: 25px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================================
+   WIZARD PROGRESS
+   ========================================================= */
+
+.wizard-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.progress-item {
+  flex: 1;
+  height: 6px;
+  border-radius: 10px;
+  background: #e2e8f0;
+  transition: background 0.3s ease;
+}
+
+.progress-item.active {
+  background: #255f38;
+}
+
+.progress-item.done {
+  background: #48bb78;
+}
+
+/* =========================================================
+   WIZARD STEPS
+   ========================================================= */
+
+.wizard-step {
+  display: none;
+}
+
+.wizard-step.active {
+  display: block;
+}
+
+/* =========================================================
+   STEP TITLE
+   ========================================================= */
+
+.step-title {
+  margin: 0 0 6px;
+  color: #255f38;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.step-description {
+  margin: 0 0 22px;
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FORM FIELD
+   ========================================================= */
+
+.field {
+  margin-bottom: 17px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  display: block;
+  width: 100%;
+
+  padding: 11px 13px;
+
+  background: #ffffff;
+  color: #1f2937;
+
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #255f38;
+  box-shadow: 0 0 0 3px rgba(37, 95, 56, 0.12);
+}
+
+.field input[readonly] {
+  background: #f7fafc;
+  color: #4a5568;
+  cursor: not-allowed;
+}
+
+.field textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #a0aec0;
+}
+
+/* =========================================================
+   DOCUMENT SECTION
+   ========================================================= */
+
+.document-item {
+  padding: 17px;
+  margin-bottom: 13px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.document-item:hover {
+  border-color: #b7d8ba;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.document-item label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #2d3748;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.document-item small {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #718096;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.document-item input[type="file"] {
+  width: 100%;
+  padding: 9px;
+
+  background: #f8fafc;
+
+  border: 1px dashed #cbd5e0;
+  border-radius: 8px;
+
+  color: #4a5568;
+  font-size: 13px;
+
+  box-sizing: border-box;
+}
+
+.document-item input[type="file"]:focus {
+  outline: none;
+  border-color: #255f38;
+}
+
+.document-name {
+  display: block;
+  margin-top: 7px;
+
+  color: #4a5568;
+  font-size: 13px;
+}
+
+/* =========================================================
+   REVIEW BOX
+   ========================================================= */
+
+.review-box {
+  padding: 17px;
+  margin-bottom: 16px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.review-box h4 {
+  margin: 0 0 10px;
+
+  color: #255f38;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.review-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #edf2f7;
+
+  font-size: 14px;
+}
+
+.review-row:last-child {
+  border-bottom: none;
+}
+
+.review-label {
+  color: #718096;
+  flex-shrink: 0;
+}
+
+.review-value {
+  color: #2d3748;
+  font-weight: 600;
+  text-align: right;
+  word-break: break-word;
+}
+
+/* =========================================================
+   CONFIRMATION
+   ========================================================= */
+
+.confirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  margin-top: 16px;
+  padding: 13px 15px;
+
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+
+  color: #4a5568;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.confirmation input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+
+  accent-color: #255f38;
+
+  cursor: pointer;
+}
+
+.confirmation label {
+  cursor: pointer;
+}
+
+/* =========================================================
+   WIZARD ACTIONS
+   ========================================================= */
+
+.wizard-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 28px;
+  padding-top: 20px;
+
+  border-top: 1px solid #edf2f7;
+}
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 10px 18px;
+
+  background: #ffffff;
+  color: #4a5568;
+
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background: #f7fafc;
+  border-color: #a0aec0;
+}
+
+/* =========================================================
+   NEXT / SUBMIT BUTTON
+   ========================================================= */
+
+.enrollment-container .btn-next,
+.enrollment-container button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 10px 19px;
+
+  background: #255f38;
+  color: #ffffff;
+
+  border: 1px solid #255f38;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.enrollment-container .btn-next:hover,
+.enrollment-container button[type="submit"]:hover {
+  background: #1d4d2d;
+  border-color: #1d4d2d;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   DISABLED BUTTON
+   ========================================================= */
+
+.enrollment-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .enrollment-container {
+    max-width: 100%;
+  }
+
+  .enrollment-header {
+    padding: 20px;
+  }
+
+  .enrollment-header h2 {
+    font-size: 20px;
+  }
+
+  .wizard {
+    padding: 20px;
+  }
+
+  .step-title {
+    font-size: 18px;
+  }
+
+  .review-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .review-value {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .enrollment-header {
+    padding: 17px;
+    border-radius: 10px;
+  }
+
+  .wizard {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .wizard-progress {
+    gap: 5px;
+    margin-bottom: 22px;
+  }
+
+  .progress-item {
+    height: 5px;
+  }
+
+  .field {
+    margin-bottom: 14px;
+  }
+
+  .document-item {
+    padding: 14px;
+  }
+
+  .wizard-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .wizard-actions button,
+  .wizard-actions .btn-back,
+  .wizard-actions .btn-next,
+  .wizard-actions button[type="submit"] {
+    width: 100%;
+  }
+
+  .notice {
+    padding: 15px;
+  }
+
+  .enrollment-container .action-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+  .wizard-actions,
+  .wizard-progress {
+    display: none;
+  }
+
+  .enrollment-container {
+    max-width: 100%;
+  }
+
+  .wizard,
+  .enrollment-header {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* =========================================================
+   ENROLLMENT NOTICE STYLES
+========================================================= */
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.notice-success {
+  background: #f0fff4;
+  border: 2px solid #48bb78;
+}
+
+.notice-pending {
+  background: #fffff0;
+  border: 2px solid #ecc94b;
+}
+
+.notice-approved {
+  background: #f0fff4;
+  border: 2px solid #48bb78;
+}
+
+.notice-rejected {
+  background: #fff5f5;
+  border: 2px solid #fc8181;
+}
+
+.notice-error {
+  background: #fff5f5;
+  border: 2px solid #fc8181;
+}
+
+.notice-icon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.success-icon {
+  color: #48bb78;
+}
+
+.error-icon {
+  color: #fc8181;
+}
+
+.pending-icon {
+  color: #ecc94b;
+}
+
+.notice-content {
+  flex: 1;
+}
+
+.notice-title {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+}
+
+.success-title {
+  color: #22543d;
+}
+
+.error-title {
+  color: #c53030;
+}
+
+.pending-title {
+  color: #975a16;
+}
+
+.notice-text {
+  font-size: 16px;
+  color: #2d3748;
+  margin: 0 0 10px 0;
+}
+
+.notice-info-box {
+  background: #ebf8ff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  border-left: 4px solid #667eea;
+}
+
+.notice-info-box p {
+  margin: 0;
+  color: #2c5282;
+}
+
+.pending-info {
+  background: #fefcbf;
+  border-left: 4px solid #ecc94b;
+}
+
+.pending-info p {
+  color: #975a16;
+}
+
+.success-info {
+  background: #ebf8ff;
+  border-left: 4px solid #48bb78;
+}
+
+.success-info p {
+  color: #22543d;
+}
+
+.notice-status {
+  margin-top: 15px;
+}
+
+.notice-remarks {
+  background: #f7fafc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  border-left: 4px solid #ecc94b;
+}
+
+.notice-remarks strong {
+  color: #4a5568;
+}
+
+.notice-remarks p {
+  margin: 5px 0 0 0;
+  color: #718096;
+}
+
+.error-remarks {
+  border-left: 4px solid #fc8181;
+}
+
+.error-remarks p {
+  color: #742a2a;
+}
+
+.notice-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Action Button Variants */
+.action-btn-primary {
+  background: #667eea;
+  border-color: #667eea;
+}
+
+.action-btn-primary:hover {
+  background: #5a67d8;
+  border-color: #5a67d8;
+}
+
+.action-btn-success {
+  background: #48bb78;
+  border-color: #48bb78;
+}
+
+.action-btn-success:hover {
+  background: #38a169;
+  border-color: #38a169;
+}
+
+/* =========================================================
+   ANNOUNCEMENTS PAGE SPECIFIC STYLES
+========================================================= */
+
+/* Wrapper for the announcements list */
+.announcements-wrapper {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  padding: 24px;
+  margin-top: 20px;
+}
+
+/* Header for the announcements section */
+.announcements-wrapper h3 {
+  margin: 0 0 20px 0;
+  padding-bottom: 13px;
+  border-bottom: 2px solid #edf2f7;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.announcements-wrapper h3 i {
+  color: #255f38;
+}
+
+/* Individual announcement item container */
+.announcement-item {
+  border-left: 4px solid #255f38;
+  padding: 18px 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.announcement-item:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+.announcement-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Announcement Header (Title + Date) */
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.announcement-title {
+  font-weight: 700;
+  color: #255f38;
+  font-size: 15px;
+}
+
+.announcement-date {
+  color: #718096;
+  font-size: 12px;
+}
+
+/* Announcement content text */
+.announcement-text {
+  color: #4a5568;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* =========================================================
+   ANNOUNCEMENT COLOR VARIANTS
+========================================================= */
+
+.announcement-item.green {
+  border-left-color: #255f38;
+}
+
+.announcement-item.green .announcement-title {
+  color: #255f38;
+}
+
+.announcement-item.yellow {
+  border-left-color: #ecc94b;
+}
+
+.announcement-item.yellow .announcement-title {
+  color: #975a16;
+}
+
+.announcement-item.blue {
+  border-left-color: #48bb78;
+}
+
+.announcement-item.blue .announcement-title {
+  color: #22543d;
+}
+
+/* =========================================================
+   ANNOUNCEMENTS MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .announcements-wrapper {
+    padding: 18px;
+  }
+
+  .announcement-item {
+    padding: 15px;
+  }
+
+  .announcement-title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .announcements-wrapper {
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .announcement-item {
+    padding: 12px 14px;
+    border-radius: 6px;
+  }
+
+  .announcement-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .announcement-date {
+    font-size: 11px;
+  }
+
+  .announcement-text {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   TOPBAR MOBILE MENU BUTTON
+========================================================= */
+
+/* Container for the hamburger menu */
+.menu-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The hamburger button itself */
+#menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  color: #255f38;
+  padding: 0;
+}
+
+/* Show it only on mobile screens */
+@media (max-width: 576px) {
+  #menu-toggle {
+    display: block;
+  }
+}
+
+/* =========================================================
+   NOTIFICATIONS PAGE SPECIFIC STYLES
+========================================================= */
+
+/* Force notifications to look different from announcements */
+.notification-item {
+  border-left-width: 5px;
+  padding: 18px 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.notification-item:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+.notification-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Unread Notification (Blue) */
+.notification-item.unread {
+  background: #f0f7ff;
+  border-left-color: #3b82f6;
+}
+.notification-item.unread .notification-title {
+  color: #1e40af;
+}
+
+/* Info Notification (Blue) */
+.notification-item.info {
+  background: #f0f7ff;
+  border-left-color: #3b82f6;
+}
+.notification-item.info .notification-title {
+  color: #1e40af;
+}
+
+/* Success Notification (Green) */
+.notification-item.success {
+  background: #f0fdf4;
+  border-left-color: #22c55e;
+}
+.notification-item.success .notification-title {
+  color: #166534;
+}
+
+/* Warning Notification (Yellow) */
+.notification-item.warning {
+  background: #fffbeb;
+  border-left-color: #f59e0b;
+}
+.notification-item.warning .notification-title {
+  color: #92400e;
+}
+
+/* Notification Header & Text */
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.notification-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.notification-date {
+  color: #718096;
+  font-size: 12px;
+}
+
+.notification-text {
+  color: #4a5568;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Mobile Responsive for Notifications */
+@media (max-width: 768px) {
+  .notification-item {
+    padding: 15px;
+  }
+  .notification-title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-item {
+    padding: 12px 14px;
+    border-radius: 6px;
+  }
+  .notification-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .notification-date {
+    font-size: 11px;
+  }
+  .notification-text {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   STUDENT SUBJECTS PAGE - student/subjects.php
+   ========================================================= */
+
+/* ----- Subjects Wrapper ----- */
+.subjects-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+/* ----- Subjects Table ----- */
+.subjects-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.subjects-table thead {
+  background: #f7fafc;
+}
+
+.subjects-table th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4a5568;
+  border-bottom: 2px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subjects-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #edf2f7;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.subjects-table tbody tr:hover {
+  background: #f7fafc;
+}
+
+.subjects-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ----- Badges ----- */
+.subjects-table .code-badge {
+  background: #e5f2ea;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #1a472a;
+  display: inline-block;
+}
+
+.subjects-table .units-badge {
+  background: #edf2f7;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4a5568;
+  display: inline-block;
+}
+
+.subjects-table .instructor-name {
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.subjects-table .schedule-info {
+  color: #4a5568;
+}
+
+.subjects-table .subject-name {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+/* ----- Info Cards ----- */
+.info-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border: 1px solid #e2e8f0;
+}
+
+.info-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-card h3 i {
+  color: #255f38;
+}
+
+.info-card p {
+  color: #4a5568;
+  font-size: 14px;
+  margin: 0;
+}
+
+.info-card .highlight {
+  color: #255f38;
+  font-weight: 700;
+}
+
+/* ----- Empty State ----- */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #a0aec0;
+}
+
+.empty-state i {
+  font-size: 48px;
+  color: #cbd5e0;
+  margin-bottom: 15px;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #718096;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .subjects-table {
+    font-size: 13px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .subjects-table th,
+  .subjects-table td {
+    padding: 10px 12px;
+  }
+
+  .info-card {
+    padding: 15px 18px;
+  }
+
+  .info-card h3 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subjects-table th,
+  .subjects-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .subjects-table .code-badge,
+  .subjects-table .units-badge {
+    font-size: 11px;
+    padding: 2px 10px;
+  }
+}
+

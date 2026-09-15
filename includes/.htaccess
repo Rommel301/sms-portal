@@ -1,0 +1,19 @@
+
+# ============================================================
+# PROTECT includes/ FOLDER
+# ============================================================
+# Blocks direct browser access to:
+#   - .env (SMTP credentials)
+#   - env.php (internal loader)
+#   - any hidden file starting with .
+# ============================================================
+
+# Block all hidden files (.env, .git, etc.)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Block env.php specifically
+<Files "env.php">
+    Require all denied
+</Files>

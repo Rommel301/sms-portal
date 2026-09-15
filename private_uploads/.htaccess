@@ -1,0 +1,11 @@
+
+# ============================================================
+# PROTECT private_uploads/ FOLDER
+# ============================================================
+# Blocks ALL direct browser access.
+# Files can ONLY be served through PHP proxies:
+#   - admin/view_document.php
+#   - student/download.php
+# ============================================================
+
+Require all denied

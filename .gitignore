@@ -1,0 +1,32 @@
+# Environment files (may password)
+includes/.env
+.env
+.env.local
+
+# Private uploads
+private_uploads/*
+!private_uploads/.gitkeep
+!private_uploads/.htaccess
+
+# Logs
+*.log
+logs/
+error.log
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary
+*.tmp
+*.bak
+*.swp
+*~
+
+# Composer
+/vendor/
